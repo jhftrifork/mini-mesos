@@ -50,7 +50,7 @@ public class ImagePusher {
         // As mesos-local daemon, retag in local registry
         exec = dockerClient.execCreateCmd(mesosClusterContainerId).withAttachStdout(true).withCmd("docker", "tag", "-f", "private-registry:5000/" + imageNameWithTag, imageNameWithTag).exec();
         dockerClient.execStartCmd(exec.getId()).exec(); // This doesn't produce any log messages
-        LOGGER.info("Succesfully injected [" + privateRepoURL + "/" + imageNameWithTag + "]");
+        LOGGER.info("Successfully injected [" + privateRepoURL + "/" + imageNameWithTag + "]");
     }
 
     private boolean successfulPull(String fullLog) {
